@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964f9dd44c9e2453fbae827b49aa0b05, type: 3}
+  m_Name: 8_relocation_pack
+  m_EditorClassIdentifier: 
+  bundleId: relocation_arena_vip
+  displayName: "Relocation (-50GOLD || -10HP) \u2192 To Dungeoun)"
+  costOps:
+  - {fileID: 11400000, guid: 26dd8301ea06340259e7605714c26e1a, type: 2}
+  - {fileID: 11400000, guid: f5ec09295f8344df18facad6c6221409, type: 2}
+  rewardOps:
+  - {fileID: 11400000, guid: fc166b1a445394933916daa9d66f72ab, type: 2}

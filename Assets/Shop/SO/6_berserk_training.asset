@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964f9dd44c9e2453fbae827b49aa0b05, type: 3}
+  m_Name: 6_berserk_training
+  m_EditorClassIdentifier: 
+  bundleId: berserk_training
+  displayName: "Berserk Training (-10% HP \u2192 +100 Gold)"
+  costOps:
+  - {fileID: 11400000, guid: eeb4daab84f184c12892dcd0e710d627, type: 2}
+  rewardOps:
+  - {fileID: 11400000, guid: c1f13c9517007445bab40c4d4c7e4e68, type: 2}
