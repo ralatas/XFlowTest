@@ -45,7 +45,6 @@ namespace Shop
             bool canBuy = bundle && _service.CanBuy(bundle);
             if (buyButton) buyButton.interactable = canBuy;
             if (buyLabel) buyLabel.text = canBuy ? "Buy" : "Unavailable";
-            Debug.Log("Scene name: " + SceneManager.GetActiveScene().name);
             infoButton.gameObject.SetActive(SceneManager.GetActiveScene().name != "BundleDetailsScene");
         }
 
