@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2_health_potion
   m_EditorClassIdentifier: 
   bundleId: health_potion
-  displayName: "Health Potion (+20%HP \u2192 -50GOLD)"
+  displayName: "Health Potion (+20%HP \u2192 -50Gold)"
   costOps:
   - {fileID: 11400000, guid: 26dd8301ea06340259e7605714c26e1a, type: 2}
   rewardOps:

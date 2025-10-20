@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3_first_aid_20
   m_EditorClassIdentifier: 
   bundleId: first_aid_20
-  displayName: "First Aid (+20 HP \u2192 -50 Gold )"
+  displayName: "First Aid (+20HP \u2192 -50Gold )"
   costOps:
   - {fileID: 11400000, guid: 26dd8301ea06340259e7605714c26e1a, type: 2}
   rewardOps:

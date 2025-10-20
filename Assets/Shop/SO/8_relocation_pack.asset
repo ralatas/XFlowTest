@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 8_relocation_pack
   m_EditorClassIdentifier: 
   bundleId: relocation_arena_vip
-  displayName: "Relocation (-50GOLD || -10HP) \u2192 To Dungeoun)"
+  displayName: "Relocation (-50Gold  -10HP) \u2192 To Dungeon)"
   costOps:
   - {fileID: 11400000, guid: 26dd8301ea06340259e7605714c26e1a, type: 2}
   - {fileID: 11400000, guid: f5ec09295f8344df18facad6c6221409, type: 2}

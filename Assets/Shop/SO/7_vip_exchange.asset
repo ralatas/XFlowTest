@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 7_vip_exchange
   m_EditorClassIdentifier: 
   bundleId: vip_to_gold
-  displayName: "VIP Exchange (-30s VIP \u2192 +100 Gold)"
+  displayName: "VIP Exchange (-30sVIP \u2192 +100Gold)"
   costOps:
   - {fileID: 11400000, guid: 9d2c15fe122374baba2676cd2387cf9f, type: 2}
   rewardOps:

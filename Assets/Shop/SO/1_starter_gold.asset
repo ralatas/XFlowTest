@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1_starter_gold
   m_EditorClassIdentifier: 
   bundleId: starter_gold
-  displayName: + 100 GOLD
+  displayName: +100Gold
   costOps: []
   rewardOps:
   - {fileID: 11400000, guid: c1f13c9517007445bab40c4d4c7e4e68, type: 2}

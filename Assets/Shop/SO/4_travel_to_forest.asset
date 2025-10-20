@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 4_travel_to_forest
   m_EditorClassIdentifier: 
   bundleId: travel_forest
-  displayName: Travel to Forest (Cost 100 GOLD)
+  displayName: Travel to Forest (-100Gold)
   costOps:
   - {fileID: 11400000, guid: 176d4306727104b36b29f94388e1c87f, type: 2}
   rewardOps:

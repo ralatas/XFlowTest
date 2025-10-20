@@ -368,7 +368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -460, y: 216}
+  m_AnchoredPosition: {x: -459.99823, y: 216}
   m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &349306971
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.71870494, b: 0.9339623, a: 1}
+  m_Color: {r: 0.5613208, g: 0.795283, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -543,7 +543,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1056,7 +1056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2682448908446256977, guid: 2297a5205b5c443f9b9e97769dacef95, type: 3}
       propertyPath: m_text
-      value: 'Vip (seconds): '
+      value: 'VIP (seconds): '
       objectReference: {fileID: 0}
     - target: {fileID: 8789628301212679718, guid: 2297a5205b5c443f9b9e97769dacef95, type: 3}
       propertyPath: m_Pivot.x
@@ -1264,7 +1264,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1270558698}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.98238444
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

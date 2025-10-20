@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using Core;
 
@@ -44,6 +45,8 @@ namespace Shop
             bool canBuy = bundle && _service.CanBuy(bundle);
             if (buyButton) buyButton.interactable = canBuy;
             if (buyLabel) buyLabel.text = canBuy ? "Buy" : "Unavailable";
+            Debug.Log("Scene name: " + SceneManager.GetActiveScene().name);
+            infoButton.gameObject.SetActive(SceneManager.GetActiveScene().name != "BundleDetailsScene");
         }
 
         bool FalseIfPresent(Button b) { return false; }
@@ -64,7 +67,7 @@ namespace Shop
         {
             if (bundle == null) return;
             Core.SceneContext.SelectedBundleGuid = bundle.bundleId;
-            UnityEngine.SceneManagement.SceneManager.LoadScene("BundleDetailsScene");
+            SceneManager.LoadScene("BundleDetailsScene");
         }
     }
 }

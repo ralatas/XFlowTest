@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10_vip_tax
   m_EditorClassIdentifier: 
   bundleId: vip_tax
-  displayName: "VIP Tax (+30s VIP \u2192 -50 Gold)"
+  displayName: "VIP Tax (+30sVIP \u2192 -50Gold)"
   costOps:
   - {fileID: 11400000, guid: 26dd8301ea06340259e7605714c26e1a, type: 2}
   rewardOps:

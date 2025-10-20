@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 6_berserk_training
   m_EditorClassIdentifier: 
   bundleId: berserk_training
-  displayName: "Berserk Training (-10% HP \u2192 +100 Gold)"
+  displayName: "Berserk Training (-10%HP \u2192 +100Gold)"
   costOps:
   - {fileID: 11400000, guid: eeb4daab84f184c12892dcd0e710d627, type: 2}
   rewardOps:
