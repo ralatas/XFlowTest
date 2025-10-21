@@ -8,6 +8,9 @@ namespace Location
     {
         public string value;
         public bool CanExecute(IReadableStore s) => true;
-        public void Apply(IWritableStore s) => s.Set(new LocationKey(), value);
+        public void Apply(IWritableStore s)
+        {
+            LocationController.Set(value);
+        }
     }
 }

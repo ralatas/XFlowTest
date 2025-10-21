@@ -19,7 +19,7 @@ namespace Health
         {
             s.TryGet(new HealthKey(), out int hp);
             int cost = Mathf.RoundToInt(hp * (percent / 100f));
-            s.Set(new HealthKey(), Mathf.Max(0, hp - cost));
+            HealthController.Add(-cost);
         }
     }
 }

@@ -9,17 +9,17 @@ namespace Location
         [SerializeField] TextMeshProUGUI locationText;
         public string defaultLocation = "Town";
 
-        void OnEnable() { DomainEvents.StoreChanged += Refresh; }
-        void OnDisable() { DomainEvents.StoreChanged -= Refresh; }
-        void Start() { Refresh(); }
+        void OnEnable()  { LocationController.OnLocationChanged += OnChanged; }
+        void OnDisable() { LocationController.OnLocationChanged -= OnChanged; }
+
+        void Start()
+        {
+            PlayerData.Instance.TryGet(new LocationKey(), out string loc);
+            locationText.text = loc ?? "-";
+        }
 
         public void OnResetLocation() => LocationController.ResetToDefault(defaultLocation);
 
-        void Refresh()
-        {
-            var pd = PlayerData.Instance;
-            pd.TryGet(new LocationKey(), out string loc);
-            locationText.text = loc ?? "-";
-        }
+        void OnChanged(string loc) => locationText.text = loc ?? "-";
     }
 }

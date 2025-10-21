@@ -10,18 +10,20 @@ namespace VIP
         [SerializeField] TextMeshProUGUI vipText;
         public double plusSeconds = 30;
 
-        void OnEnable() { DomainEvents.StoreChanged += Refresh; }
-        void OnDisable() { DomainEvents.StoreChanged -= Refresh; }
-        void Start() { Refresh(); }
+        void OnEnable()  { VipController.OnVipChanged += OnChanged; }
+        void OnDisable() { VipController.OnVipChanged -= OnChanged; }
+
+        void Start()
+        {
+            PlayerData.Instance.TryGet(new VipTicksKey(), out long ticks);
+            vipText.text = ((int)new TimeSpan(ticks).TotalSeconds).ToString();
+        }
 
         public void OnPlusVip() => VipController.AddSeconds(plusSeconds);
 
-        void Refresh()
+        void OnChanged(long ticks)
         {
-            var pd = PlayerData.Instance;
-            pd.TryGet(new VipTicksKey(), out long ticks);
-            var ts = new TimeSpan(ticks);
-            vipText.text = ((int)ts.TotalSeconds).ToString();
+            vipText.text = ((int)new TimeSpan(ticks).TotalSeconds).ToString();
         }
     }
 }

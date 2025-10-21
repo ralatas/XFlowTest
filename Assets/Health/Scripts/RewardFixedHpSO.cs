@@ -13,8 +13,7 @@ namespace Health
 
         public void Apply(IWritableStore s)
         {
-            s.TryGet(new HealthKey(), out int hp);
-            s.Set(new HealthKey(), System.Math.Max(0, hp + amount));
+            HealthController.Add(amount);
         }
     }
 }

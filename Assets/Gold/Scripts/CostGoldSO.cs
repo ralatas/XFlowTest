@@ -12,8 +12,7 @@ namespace Gold
 
         public void Apply(IWritableStore s)
         {
-            s.TryGet(new GoldKey(), out int g);
-            s.Set(new GoldKey(), g - amount);
+            GoldController.Add(-amount);
         }
     }
 }

@@ -1,14 +1,20 @@
+using System;
 using Core;
 
 namespace Health
 {
     public static class HealthController
     {
+        public static event Action<int> OnHealthChanged;
+
         public static void Add(int value)
         {
             var pd = PlayerData.Instance;
             pd.TryGet(new HealthKey(), out int hp);
-            pd.Set(new HealthKey(), System.Math.Max(0, hp + value));
+            hp = Math.Max(0, hp + value);
+            pd.Set(new HealthKey(), hp);
+
+            OnHealthChanged?.Invoke(hp);
             DomainEvents.RaiseStoreChanged();
         }
     }

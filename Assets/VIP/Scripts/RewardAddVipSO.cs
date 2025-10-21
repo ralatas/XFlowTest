@@ -1,6 +1,5 @@
 using UnityEngine;
 using Core;
-using System;
 
 namespace VIP
 {
@@ -13,9 +12,7 @@ namespace VIP
 
         public void Apply(IWritableStore s)
         {
-            s.TryGet(new VipTicksKey(), out long currentTicks);
-            long addTicks = TimeSpan.FromSeconds(seconds).Ticks;
-            s.Set(new VipTicksKey(), currentTicks + addTicks);
+            VipController.AddSeconds(seconds);
         }
     }
 }

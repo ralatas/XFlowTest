@@ -15,7 +15,7 @@ namespace Health
         {
             s.TryGet(new HealthKey(), out int hp);
             var delta = (int)System.Math.Round(hp * (percent / 100.0));
-            s.Set(new HealthKey(), System.Math.Max(0, hp + delta));
+            HealthController.Add(delta);
         }
     }
 }

@@ -9,17 +9,18 @@ namespace Gold
         [SerializeField] TextMeshProUGUI goldText;
         public int plusAmount = 10;
 
-        void OnEnable() { DomainEvents.StoreChanged += Refresh; }
-        void OnDisable() { DomainEvents.StoreChanged -= Refresh; }
-        void Start() { Refresh(); }
+        void OnEnable()  { GoldController.OnGoldChanged += OnGoldChanged; }
+        void OnDisable() { GoldController.OnGoldChanged -= OnGoldChanged; }
 
-        public void OnPlusGold() => GoldController.Add(plusAmount);
-
-        void Refresh()
+        void Start()
         {
             var pd = PlayerData.Instance;
             pd.TryGet(new GoldKey(), out int g);
             goldText.text = g.ToString();
         }
+
+        public void OnPlusGold() => GoldController.Add(plusAmount);
+
+        void OnGoldChanged(int gold) => goldText.text = gold.ToString();
     }
 }

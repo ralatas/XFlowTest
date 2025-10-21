@@ -9,17 +9,18 @@ namespace Health
         [SerializeField] TextMeshProUGUI healthText;
         public int plusAmount = 5;
 
-        void OnEnable() { DomainEvents.StoreChanged += Refresh; }
-        void OnDisable() { DomainEvents.StoreChanged -= Refresh; }
-        void Start() { Refresh(); }
+        void OnEnable()  { HealthController.OnHealthChanged += OnChanged; }
+        void OnDisable() { HealthController.OnHealthChanged -= OnChanged; }
 
-        public void OnPlusHealth() => HealthController.Add(plusAmount);
-
-        void Refresh()
+        void Start()
         {
             var pd = PlayerData.Instance;
             pd.TryGet(new HealthKey(), out int hp);
             healthText.text = hp.ToString();
         }
+
+        public void OnPlusHealth() => HealthController.Add(plusAmount);
+
+        void OnChanged(int hp) => healthText.text = hp.ToString();
     }
 }
