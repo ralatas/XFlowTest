@@ -1,5 +1,4 @@
-using System.Collections;
-using UnityEngine;
+using System;
 using Core;
 
 namespace Shop
@@ -11,16 +10,10 @@ namespace Shop
 
         public bool CanBuy(ShopBundleSO b) => CompositeRunner.ValidateAll(b.Costs, _pd);
 
-        public IEnumerator BuyRoutine(ShopBundleSO b, System.Action<bool> onDone)
+        public void StartPurchase(ShopBundleSO b, Action<bool> onDone)
         {
-            if (!CanBuy(b)) { onDone?.Invoke(false); yield break; }
-
-            float t = 0f;
-            while (t < 3f) { t += Time.deltaTime; yield return null; }
-
-            bool ok = CompositeRunner.ExecuteTransaction(b.Costs, b.Rewards, _pd);
-            if (ok) DomainEvents.RaiseStoreChanged();
-            onDone?.Invoke(ok);
+            if (!CanBuy(b)) { onDone?.Invoke(false); return; }
+            ShopPurchaseManager.Instance.StartPurchase(b, 3f, onDone);
         }
     }
 }

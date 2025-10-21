@@ -14,9 +14,8 @@ namespace Shop
         [SerializeField] Button infoButton;
 
         public ShopBundleSO bundle;
-
         ShopService _service;
-        bool _processing;
+        bool _processingCached;
 
         void Awake()
         {
@@ -31,35 +30,43 @@ namespace Shop
         void Start()
         {
             if (title) title.text = bundle ? bundle.displayName : "-";
+            _processingCached = bundle && ShopPurchaseManager.Instance.IsProcessing(bundle.bundleId);
             Refresh();
+        }
+
+        void Update()
+        {
+            if (bundle == null) return;
+            bool now = ShopPurchaseManager.Instance.IsProcessing(bundle.bundleId);
+            if (now != _processingCached)
+            {
+                _processingCached = now;
+                Refresh();
+            }
         }
 
         void Refresh()
         {
-            if (_processing)
-            {
-                if (buyButton) buyButton.interactable = FalseIfPresent(buyButton);
-                if (buyLabel) buyLabel.text = "Processing…";
-                return;
-            }
-            bool canBuy = bundle && _service.CanBuy(bundle);
-            if (buyButton) buyButton.interactable = canBuy;
-            if (buyLabel) buyLabel.text = canBuy ? "Buy" : "Unavailable";
-            infoButton.gameObject.SetActive(SceneManager.GetActiveScene().name != "BundleDetailsScene");
-        }
+            if (bundle == null) return;
 
-        bool FalseIfPresent(Button b) { return false; }
+            bool processing = ShopPurchaseManager.Instance.IsProcessing(bundle.bundleId);
+            if (processing)
+            {
+                if (buyButton) buyButton.interactable = false;
+                if (buyLabel)  buyLabel.text = "Processing…";
+            } else {
+                bool canBuy = _service.CanBuy(bundle);
+                if (buyButton) buyButton.interactable = canBuy;
+                if (buyLabel) buyLabel.text = canBuy ? "Buy" : "Unavailable";
+            }
+            if (infoButton) infoButton.gameObject.SetActive(SceneManager.GetActiveScene().name != "BundleDetailsScene");
+        }
 
         void OnBuy()
         {
-            if (_processing || bundle == null) return;
-            _processing = true;
+            if (bundle == null || ShopPurchaseManager.Instance.IsProcessing(bundle.bundleId)) return;
             Refresh();
-            StartCoroutine(_service.BuyRoutine(bundle, ok =>
-            {
-                _processing = false;
-                Refresh();
-            }));
+            _service.StartPurchase(bundle, ok => { Refresh(); });
         }
 
         void OnInfo()
